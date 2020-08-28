@@ -13,9 +13,6 @@
       (div-by? 400)
       (div-by? 4))))
 
-
-
-
 (deftest leapyear-tests
   (testing "A year is not a leap year if not divisible by 4"
     (is (= (leap-year? 1995) false))
