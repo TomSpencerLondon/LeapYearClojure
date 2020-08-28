@@ -16,5 +16,6 @@
     (is (= (leap-year? 1995) false)))
   (testing "A year is a leap year if divisible by 4"
     (is (= (leap-year? 1996) true)))
-
+  (testing "A year is a leap year if divisible by 400",
+    (is (= (leap-year? 1600) true)))
   )
