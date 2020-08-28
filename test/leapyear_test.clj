@@ -10,9 +10,8 @@
 (defn leap-year? [year]
   (let [div-by? (partial #(zero? (mod year %)))]
     (if (div-by? 100)
-      (zero? (mod year 400))
-      (zero? (mod year 4)))
-    ))
+      (div-by? 400)
+      (div-by? 4))))
 
 
 
