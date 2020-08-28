@@ -2,15 +2,19 @@
   (:require [clojure.test :refer :all]))
 
 
-;; @todo A year is not a leap year if not divisible by 4
-;; @todo A year is a leap year if divisible by 4
-;; @todo A year is a leap year if divisible by 400
-;; @todo A year is not a leap year if divisible by 100 but not by 400
+;; A year is not a leap year if not divisible by 4
+;; A year is a leap year if divisible by 4
+;; A year is a leap year if divisible by 400
+;; A year is not a leap year if divisible by 100 but not by 400
 
 (defn leap-year? [year]
-  (if (zero? (mod year 100))
-    (zero? (mod year 400))
-    (zero? (mod year 4))))
+  (let [div-by? (partial #(zero? (mod year %)))]
+    (if (div-by? 100)
+      (zero? (mod year 400))
+      (zero? (mod year 4)))
+    ))
+
+
 
 
 (deftest leapyear-tests
