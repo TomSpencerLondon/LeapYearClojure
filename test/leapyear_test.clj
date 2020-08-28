@@ -8,9 +8,13 @@
 ;; @todo A year is not a leap year if divisible by 100 but not by 400
 
 (defn leap-year? [year]
-  false)
+  (zero? (mod year 4)))
 
 
 (deftest leapyear-tests
   (testing "A year is not a leap year if not divisible by 4"
-    (is (= (leap-year? 1995) false))))
+    (is (= (leap-year? 1995) false)))
+  (testing "A year is a leap year if divisible by 4"
+    (is (= (leap-year? 1996) true)))
+
+  )
